@@ -3,10 +3,10 @@
 I am a final-year Computer science and Artificial Intelligence major at Amrita Vishwa Vidhyapeetham, Bangalore, where my main interests lie in the **Generative AI** field. Outside of class, my research primarily includes democratizing generative AI into various indic languages. My other hobbies include dancing, singing, writing, chess, cricket, movies and learning new languages.
 
 - Email: [nipunbnair@gmail.com](mailto:nipunbnair@gmail.com)
-- [CV](CV_Nipun.pdf)
+- [CV](Nipun08_08_2023_Resume.pdf)
 - [Google Scholar](https://scholar.google.com/citations?user=axdQX-EAAAAJ&hl=en)
 
-![Profile Photo](headshot.jpg)
+![Profile Photo](IMG_0942.JPG)
 
 ## Research
 
