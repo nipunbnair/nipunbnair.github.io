@@ -14,10 +14,10 @@ The primary aim of my research is to democratize the capabilities of Generative 
 
 ## Publications & Preprints
 
-### Using Deep Learning Hybrid Net
+### Deployment of Breast Cancer Hybrid Net using Deep Learning
 
-**Sujay Nair**, Kyle Pearson
+**Nipun B Nair**, Dr Tripti Singh, Dr Amrita Thakur, Dr Prakash Duraisamy
 
-2021
+2022
 
-In this project, we train a 1D Convolutional Neural Network to take as input artificially generated light curves mimicking TESS observations at a 2 min cadence and output a list with predicted planetary parameters-namely, Rp/Rs, Period, a/Rs, and T-mid. Comparing to the current state of the art algorithm, Transit Least Squares (TLS), which does not rely on machine learning, our Rp/Rs mean absolute error is roughly the same. We are still tuning the model to reach TLS performance for Period.
+Breast cancer (BC) occurs when healthy breast cells grow out of control and become tumors. According to American Cancer Society, breast cancer occurs in one out of eight women and in one out of thousand men. Early breast cancer detection is thus important to give the maximum chance of survival for the patient. Breast biopsy is used to analyze the breast cells and diagnose whether the sample of cells contain breast cancer. It is an invasive method and manually analyzed by a pathologist under a microscope. There is a chance of human error in such a method, and it is time consuming. Oncologist can diagnose breast cancer at a faster and accurate and less painful way if they use machine learning and image classification algorithms. One of the best machine learning techniques is Support Vector Machine. If it is combined with the computational power of Convolutional Neural Network, it becomes an immensely powerful classification algorithm. Support Vector Machine and Convolutional Neural Network model gives better accuracy than other image classifiers such as VGG16, RESNET 50, and INCEPTIONV3 models. This research is to design Deployment of Breast Cancer Hybrid Net using Deep Learning For research dataset of 3538 images was deployed. During research experiments SVM-CNN, VGG16, RESNET 50, and INCEPTIONV3 models accuracy reported were 93.35%, 89.54%, 92.45% and 88.6% respectively.
