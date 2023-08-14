@@ -6,7 +6,7 @@ I am a final-year Computer science and Artificial Intelligence major at Amrita V
 - [CV](Nipun08_08_2023_Resume.pdf)
 - [Google Scholar](https://scholar.google.co.in/citations?hl=en&user=mefMP2gAAAAJ)
 
-![Profile Photo](IMG_0942.JPG)
+![Profile Photo](1640616299014.jpg)
 
 ## Research
 
