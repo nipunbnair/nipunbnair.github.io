@@ -1,6 +1,3 @@
-Sure, I can help you convert the provided HTML code to Markdown:
-
-```markdown
 # Sujay Nair
 
 I am a first-year math and CS double major at Georgia Institute of Technology, where my main interests lie at the intersection of machine learning and gaming/astronomy. Outside of class, my research primarily studies exoplanets and computational tools to identify them and measure their transit timings. My other hobbies include pottery, chess, basketball, and football.
@@ -46,6 +43,3 @@ We explore the benefits of using recurrent neural networks for predicting the ex
 <!-- Continue with other publications -->
 
 [Website Template](https://jonbarron.info/)
-```
-
-Please note that this Markdown representation is based on the provided HTML code. You might need to further adjust the formatting or structure according to your preferences or the specific Markdown rendering environment you are using.
