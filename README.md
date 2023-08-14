@@ -4,7 +4,7 @@ I am a final-year Computer science and Artificial Intelligence major at Amrita V
 
 - Email: [nipunbnair@gmail.com](mailto:nipunbnair@gmail.com)
 - [CV](Nipun08_08_2023_Resume.pdf)
-- [Google Scholar](https://scholar.google.com/citations?user=axdQX-EAAAAJ&hl=en)
+- [Google Scholar](https://scholar.google.co.in/citations?hl=en&user=mefMP2gAAAAJ)
 
 ![Profile Photo](IMG_0942.JPG)
 
