@@ -1,16 +1,16 @@
-# Sujay Nair
+# Nipun B Nair
 
-I am a first-year math and CS double major at Georgia Institute of Technology, where my main interests lie at the intersection of machine learning and gaming/astronomy. Outside of class, my research primarily studies exoplanets and computational tools to identify them and measure their transit timings. My other hobbies include pottery, chess, basketball, and football.
+I am a final-year Computer science and Artificial Intelligence major at Amrita Vishwa Vidhyapeetham, Bangalore, where my main interests lie in the **Generative AI**field. Outside of class, my research primarily includes democratizing generative AI into various indic languages. My other hobbies include dancing, singing, writing, chess, cricket, movies and learning new languages.
 
-- Email: [snair303@gatech.edu](mailto:snair303@gatech.edu)
-- [CV](CV_Sujay.pdf)
+- Email: [nipunbnair@gmail.com](mailto:nipunbnair@gmail.com)
+- [CV](CV_Nipun.pdf)
 - [Google Scholar](https://scholar.google.com/citations?user=axdQX-EAAAAJ&hl=en)
 
 ![Profile Photo](headshot.jpg)
 
 ## Research
 
-The goals of my research are to utilize computational tools like machine learning to detect and predict exoplanet transit parameters given a light curve and enable citizen scientists/amateur astronomers to do meaningful research in this space. I also want to explore the application of RL agents to beat video games.
+The primary aim of my research is to democratize the capabilities of Generative Artificial Intelligence (AI) by extending its reach to encompass a multitude of Indic languages. With the advent of cutting-edge technologies like Generative AI, the potential for creative content generation, language translation, and cultural expression has surged remarkably. However, there exists a notable gap in its application to Indic languages, which are rich in diversity and heritage. By bridging this gap, my research endeavors to empower communities that communicate through Indic languages to leverage Generative AI for content creation, communication, and artistic expression. This pursuit holds the promise of not only preserving and revitalizing linguistic traditions but also fostering innovation and inclusivity in the digital era.
 
 ## Publications & Preprints
 
