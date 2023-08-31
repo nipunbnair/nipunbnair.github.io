@@ -1,0 +1,69 @@
+body {
+    background-image: url(image.jpg);
+    color: maroon;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+     }
+  
+  header {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+  }
+  
+  
+  /* Apply a different background color to the "About Me" section */
+  #about-me {
+    background-color: #f7f7f7;
+    padding: 20px;
+  }
+  
+  /* Style the skills list */
+  #skills ul {
+    list-style-type: disc;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Use flexbox for arranging projects */
+  /* Use flexbox for arranging projects */
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.project {
+  background-color: #f7f7f7;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: calc(33.33% - 20px); /* Distribute projects in three columns */
+  box-sizing: border-box;
+}
+
+.project h3 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.project p {
+  margin: 10px 0;
+}
+
+  
+  /* Apply a consistent font */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style contact information */
+  #contact a {
+    text-decoration: none;
+    color: #007bff;
+    margin: 0 10px;
+  }
+  
