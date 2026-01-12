@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nipun Balachandran Nair - GitHub Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .profile-info h1 {
+            font-size: 2.5em;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .profile-info p {
+            font-size: 1.1em;
+            color: #718096;
+            margin: 5px 0;
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .social-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .social-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .filter-section {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .repos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .repo-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .repo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .repo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .repo-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .repo-icon {
+            font-size: 1.5em;
+        }
+
+        .repo-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2d3748;
+            text-decoration: none;
+            flex: 1;
+        }
+
+        .repo-title:hover {
+            color: #667eea;
+        }
+
+        .repo-description {
+            color: #718096;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            min-height: 48px;
+        }
+
+        .repo-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .language {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85em;
+            color: #4a5568;
+        }
+
+        .language-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .license-badge {
+            background: #e6fffa;
+            color: #234e52;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+
+        .repo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .repo-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .repos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-info h1 {
+                font-size: 2em;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Language colors */
+        .python { background: #3572A5; }
+        .javascript { background: #f1e05a; }
+        .html { background: #e34c26; }
+        .java { background: #b07219; }
+        .scala { background: #c22d40; }
+        .jupyter { background: #DA5B0B; }
+        .matlab { background: #e16737; }
+        .assembly { background: #6E4C13; }
+        .default { background: #858585; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-section">
+                <img src="https://avatars.githubusercontent.com/u/93070453?v=4" alt="Nipun Balachandran Nair" class="avatar">
+                <div class="profile-info">
+                    <h1>Nipun Balachandran Nair</h1>
+                    <p>🎓 MPhil Monash 2025-2027 | BTech AVV 2020-2024</p>
+                    <p>📍 Melbourne, Australia</p>
+                    <p>🧠 AI Researcher | Machine Learning Enthusiast | Full Stack Developer</p>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">25</div>
+                    <div class="stat-label">Repositories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Followers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Following</div>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/nipunbnair" class="social-btn" target="_blank">🔗 GitHub Profile</a>
+                <a href="https://nipunbnair.github.io" class="social-btn" target="_blank">🌐 Personal Website</a>
+            </div>
+        </header>
+
+        <div class="filter-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterRepos('all')">All Projects</button>
+                <button class="filter-btn" onclick="filterRepos('ai-ml')">AI & ML</button>
+                <button class="filter-btn" onclick="filterRepos('web')">Web Development</button>
+                <button class="filter-btn" onclick="filterRepos('data')">Data Science</button>
+                <button class="filter-btn" onclick="filterRepos('academic')">Academic</button>
+            </div>
+        </div>
+
+        <div class="repos-grid" id="reposGrid">
+            <!-- Agentic AI -->
+            <div class="repo-card" data-category="ai-ml">
+                <div class="repo-header">
+                    <span class="repo-icon">🤖</span>
+                    <a href="https://github.com/nipunbnair/Agentic-AI-" class="repo-title" target="_blank">Agentic-AI</a>
+                </div>
+                <p class="repo-description">
+                    Experimental projects exploring autonomous AI agents powered by Large Language Models. Includes simple LLM calls, conversational loops, agents with memory, and email automation workflows.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot python"></span>
+                        Python
+                    </span>
+                    <span class="license-badge">MIT License</span>
+                </div>
+                <a href="https://github.com/nipunbnair/Agentic-AI-" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- Personal Website -->
+            <div class="repo-card" data-category="web">
+                <div class="repo-header">
+                    <span class="repo-icon">🌐</span>
+                    <a href="https://github.com/nipunbnair/nipunbnair.github.io" class="repo-title" target="_blank">nipunbnair.github.io</a>
+                </div>
+                <p class="repo-description">
+                    Personal portfolio website showcasing projects, research, and professional experience. Built with modern web technologies and responsive design.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot html"></span>
+                        HTML
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/nipunbnair.github.io" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- Breast Cancer Classification -->
+            <div class="repo-card" data-category="ai-ml academic">
+                <div class="repo-header">
+                    <span class="repo-icon">🏥</span>
+                    <a href="https://github.com/nipunbnair/BreastCancerClassification" class="repo-title" target="_blank">BreastCancerClassification</a>
+                </div>
+                <p class="repo-description">
+                    Machine learning project for breast cancer detection and classification. Research published in IEEE. Uses advanced classification algorithms for medical diagnosis.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot jupyter"></span>
+                        Jupyter Notebook
+                    </span>
+                    <span class="license-badge">📄 IEEE Published</span>
+                </div>
+                <a href="https://github.com/nipunbnair/BreastCancerClassification" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- BardChat -->
+            <div class="repo-card" data-category="ai-ml">
+                <div class="repo-header">
+                    <span class="repo-icon">💬</span>
+                    <a href="https://github.com/nipunbnair/BardChat" class="repo-title" target="_blank">BardChat</a>
+                </div>
+                <p class="repo-description">
+                    Interactive chatbot interface leveraging Google's Bard AI. Demonstrates integration with modern LLM APIs and conversational AI capabilities.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot jupyter"></span>
+                        Jupyter Notebook
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/BardChat" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- Chatbot -->
+            <div class="repo-card" data-category="ai-ml">
+                <div class="repo-header">
+                    <span class="repo-icon">🗣️</span>
+                    <a href="https://github.com/nipunbnair/Chatbot" class="repo-title" target="_blank">Chatbot</a>
+                </div>
+                <p class="repo-description">
+                    Custom chatbot implementation with natural language processing capabilities. Explores dialogue management and response generation techniques.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot python"></span>
+                        Python
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/Chatbot" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- AWS EC2 -->
+            <div class="repo-card" data-category="web">
+                <div class="repo-header">
+                    <span class="repo-icon">☁️</span>
+                    <a href="https://github.com/nipunbnair/AWS_EC2" class="repo-title" target="_blank">AWS_EC2</a>
+                </div>
+                <p class="repo-description">
+                    Cloud deployment and infrastructure automation using AWS EC2. Includes scripts for instance management, deployment, and configuration.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot python"></span>
+                        Python
+                    </span>
+                    <span class="license-badge">MIT License</span>
+                </div>
+                <a href="https://github.com/nipunbnair/AWS_EC2" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- OdiaGenAI Leaderboard -->
+            <div class="repo-card" data-category="ai-ml web">
+                <div class="repo-header">
+                    <span class="repo-icon">🏆</span>
+                    <a href="https://github.com/nipunbnair/OdiaGenAI_Leaderboard" class="repo-title" target="_blank">OdiaGenAI_Leaderboard</a>
+                </div>
+                <p class="repo-description">
+                    Leaderboard platform for Odia language AI generation models. Tracks and compares performance metrics across different AI systems for low-resource languages.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot html"></span>
+                        HTML
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/OdiaGenAI_Leaderboard" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- Full Stack Project -->
+            <div class="repo-card" data-category="web">
+                <div class="repo-header">
+                    <span class="repo-icon">🌟</span>
+                    <a href="https://github.com/nipunbnair/FullStackProject" class="repo-title" target="_blank">FullStackProject</a>
+                </div>
+                <p class="repo-description">
+                    Complete full-stack web application demonstrating modern web development practices. Includes frontend, backend, database integration, and API development.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot default"></span>
+                        Full Stack
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/FullStackProject" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- JAVA Practice -->
+            <div class="repo-card" data-category="academic">
+                <div class="repo-header">
+                    <span class="repo-icon">☕</span>
+                    <a href="https://github.com/nipunbnair/JAVA_Practice" class="repo-title" target="_blank">JAVA_Practice</a>
+                </div>
+                <p class="repo-description">
+                    Data Structures and Algorithms practice implementations in Java. Covers fundamental DSA concepts, problem-solving patterns, and coding interview preparation.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot java"></span>
+                        Java
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/JAVA_Practice" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- Kalman Filter Pollution -->
+            <div class="repo-card" data-category="data academic">
+                <div class="repo-header">
+                    <span class="repo-icon">📊</span>
+                    <a href="https://github.com/nipunbnair/Kalman-Filter-Pollution" class="repo-title" target="_blank">Kalman-Filter-Pollution</a>
+                </div>
+                <p class="repo-description">
+                    Environmental data analysis using Kalman Filtering to predict pollution levels in Bangalore. Demonstrates state estimation and time-series forecasting.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot default"></span>
+                        Analysis
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/Kalman-Filter-Pollution" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- UCSC Investor Banking -->
+            <div class="repo-card" data-category="data academic">
+                <div class="repo-header">
+                    <span class="repo-icon">💰</span>
+                    <a href="https://github.com/nipunbnair/UCSC---Investor-Banking-Project" class="repo-title" target="_blank">UCSC Investor Banking Project</a>
+                </div>
+                <p class="repo-description">
+                    Financial data analysis and investment banking project completed at UCSC. Includes portfolio optimization, risk analysis, and financial modeling.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot jupyter"></span>
+                        Jupyter Notebook
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/UCSC---Investor-Banking-Project" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- Car Insurance Prediction -->
+            <div class="repo-card" data-category="ai-ml data">
+                <div class="repo-header">
+                    <span class="repo-icon">🚗</span>
+                    <a href="https://github.com/nipunbnair/Car-Insurance-Prediction-System" class="repo-title" target="_blank">Car-Insurance-Prediction-System</a>
+                </div>
+                <p class="repo-description">
+                    Machine learning system for predicting car insurance claims and pricing. Uses predictive modeling and risk assessment algorithms.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot default"></span>
+                        ML
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/Car-Insurance-Prediction-System" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- HTML Tag Segmentation -->
+            <div class="repo-card" data-category="ai-ml">
+                <div class="repo-header">
+                    <span class="repo-icon">🔤</span>
+                    <a href="https://github.com/nipunbnair/HTML-tag-Segmentation" class="repo-title" target="_blank">HTML-tag-Segmentation</a>
+                </div>
+                <p class="repo-description">
+                    NLP project for HTML content parsing and segmentation. Implements algorithms for web scraping and structured data extraction.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot default"></span>
+                        NLP
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/HTML-tag-Segmentation" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- Income Tax System -->
+            <div class="repo-card" data-category="web">
+                <div class="repo-header">
+                    <span class="repo-icon">💵</span>
+                    <a href="https://github.com/nipunbnair/Income-Tax-System" class="repo-title" target="_blank">Income-Tax-System</a>
+                </div>
+                <p class="repo-description">
+                    Automated income tax calculation and filing system. Features tax bracket computation, deduction management, and compliance checking.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot default"></span>
+                        Application
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/Income-Tax-System" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- Game of Life -->
+            <div class="repo-card" data-category="academic">
+                <div class="repo-header">
+                    <span class="repo-icon">🎮</span>
+                    <a href="https://github.com/nipunbnair/Game-of-Life" class="repo-title" target="_blank">Game-of-Life</a>
+                </div>
+                <p class="repo-description">
+                    Conway's Game of Life implemented in JFLAP and Scratch. Demonstrates Deterministic Finite Automata (DFA) concepts and cellular automaton simulation.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot default"></span>
+                        Automata
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/Game-of-Life" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- Python ML & Genomics -->
+            <div class="repo-card" data-category="ai-ml data">
+                <div class="repo-header">
+                    <span class="repo-icon">🧬</span>
+                    <a href="https://github.com/nipunbnair/Python" class="repo-title" target="_blank">Python ML & Genomics</a>
+                </div>
+                <p class="repo-description">
+                    Collection of Python programs for Machine Learning and Genomics research. Includes bioinformatics algorithms and ML pipelines.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot jupyter"></span>
+                        Jupyter Notebook
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/Python" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- BigData -->
+            <div class="repo-card" data-category="data">
+                <div class="repo-header">
+                    <span class="repo-icon">📈</span>
+                    <a href="https://github.com/nipunbnair/BigData-" class="repo-title" target="_blank">BigData</a>
+                </div>
+                <p class="repo-description">
+                    Big Data processing and analytics using Scala and distributed computing frameworks. Covers MapReduce, Spark, and large-scale data analysis.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot scala"></span>
+                        Scala
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/BigData-" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- Scala -->
+            <div class="repo-card" data-category="academic">
+                <div class="repo-header">
+                    <span class="repo-icon">⚡</span>
+                    <a href="https://github.com/nipunbnair/Scala-" class="repo-title" target="_blank">Scala</a>
+                </div>
+                <p class="repo-description">
+                    Functional programming projects and exercises in Scala. Explores functional paradigms, immutability, and concurrent programming patterns.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot default"></span>
+                        Scala
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/Scala-" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- Robotics -->
+            <div class="repo-card" data-category="academic">
+                <div class="repo-header">
+                    <span class="repo-icon">🤖</span>
+                    <a href="https://github.com/nipunbnair/Robotics-" class="repo-title" target="_blank">Robotics</a>
+                </div>
+                <p class="repo-description">
+                    Robotics projects including motion planning, kinematics, and control systems. Covers fundamental robotics algorithms and implementations.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot default"></span>
+                        Robotics
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/Robotics-" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- PyCharm Projects -->
+            <div class="repo-card" data-category="ai-ml">
+                <div class="repo-header">
+                    <span class="repo-icon">💻</span>
+                    <a href="https://github.com/nipunbnair/Pycharm-Projects" class="repo-title" target="_blank">Pycharm-Projects</a>
+                </div>
+                <p class="repo-description">
+                    Collection of Python development projects created in PyCharm IDE. Includes various experimental and learning projects.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot jupyter"></span>
+                        Jupyter Notebook
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/Pycharm-Projects" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- Hackathons -->
+            <div class="repo-card" data-category="web ai-ml">
+                <div class="repo-header">
+                    <span class="repo-icon">🏁</span>
+                    <a href="https://github.com/nipunbnair/Hackathons" class="repo-title" target="_blank">Hackathons</a>
+                </div>
+                <p class="repo-description">
+                    Collection of projects submitted to various hackathons. Showcases rapid prototyping, innovation, and problem-solving under time constraints.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot default"></span>
+                        Mixed
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/Hackathons" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- nand2Tetris -->
+            <div class="repo-card" data-category="academic">
+                <div class="repo-header">
+                    <span class="repo-icon">🔧</span>
+                    <a href="https://github.com/nipunbnair/nand2Tetris" class="repo-title" target="_blank">nand2Tetris</a>
+                </div>
+                <p class="repo-description">
+                    Complete implementation of the Nand2Tetris course by Noam Nisan and Shimon Schocken. Building a modern computer from first principles.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot assembly"></span>
+                        Assembly
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/nand2Tetris" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- Java Programs -->
+            <div class="repo-card" data-category="academic">
+                <div class="repo-header">
+                    <span class="repo-icon">⚙️</span>
+                    <a href="https://github.com/nipunbnair/JavaPrograms" class="repo-title" target="_blank">JavaPrograms</a>
+                </div>
+                <p class="repo-description">
+                    Configuration files and Java programs for GitHub profile setup. Includes various Java implementations and utilities.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot default"></span>
+                        Config
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/JavaPrograms" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- MATLAB PCA -->
+            <div class="repo-card" data-category="data academic">
+                <div class="repo-header">
+                    <span class="repo-icon">📉</span>
+                    <a href="https://github.com/nipunbnair/Matlab-PCA" class="repo-title" target="_blank">Matlab-PCA</a>
+                </div>
+                <p class="repo-description">
+                    Principal Component Analysis implementation in MATLAB. Demonstrates dimensionality reduction and feature extraction techniques.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot matlab"></span>
+                        MATLAB
+                    </span>
+                    <span class="license-badge">MIT License</span>
+                </div>
+                <a href="https://github.com/nipunbnair/Matlab-PCA" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+
+            <!-- Deep RL -->
+            <div class="repo-card" data-category="ai-ml">
+                <div class="repo-header">
+                    <span class="repo-icon">🎯</span>
+                    <a href="https://github.com/nipunbnair/Deep-Reinforcement-Learning-With-Python" class="repo-title" target="_blank">Deep-Reinforcement-Learning-With-Python</a>
+                </div>
+                <p class="repo-description">
+                    Forked repository covering deep reinforcement learning algorithms. Includes classic RL, distributional RL, inverse RL using OpenAI Gym and TensorFlow.
+                </p>
+                <div class="repo-meta">
+                    <span class="language">
+                        <span class="language-dot jupyter"></span>
+                        Jupyter Notebook
+                    </span>
+                </div>
+                <a href="https://github.com/nipunbnair/Deep-Reinforcement-Learning-With-Python" class="repo-link" target="_blank">View Repository →</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>Built with ❤️ by Nipun Balachandran Nair</p>
+            <p>Connect with me on <a href="https://github.com/nipunbnair" target="_blank">GitHub</a></p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Last updated: January 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        function filterRepos(category) {
+            const cards = document.querySelectorAll('.repo-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    const categories = card.getAttribute('data-category');
+                    if (categories && categories.includes(category)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Add smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
