@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nipun B Nair - Research & Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --dark-color: #2d3748;
+            --light-gray: #718096;
+            --bg-light: #f7fafc;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-brand {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark-color);
+            border-radius: 3px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header/Hero Section */
+        .hero-section {
+            background: white;
+            border-radius: 20px;
+            margin: 30px auto;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5em;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1em;
+            color: var(--light-gray);
+            margin-bottom: 20px;
+        }
+
+        /* Contact Links */
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .contact-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border: 2px solid var(--primary-color);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .contact-links a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px auto;
+            box-shadow: var(--card-shadow);
+        }
+
+        section h2 {
+            font-size: 2em;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        /* Research Section */
+        #research p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        #research a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        #research a:hover {
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* Projects Grid */
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .project {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .project h3 {
+            color: var(--dark-color);
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .project p {
+            color: #4a5568;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        /* GitHub Repos Section */
+        .repos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .repo-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .repo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .repo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .repo-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .repo-icon {
+            font-size: 1.5em;
+        }
+
+        .repo-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--dark-color);
+            text-decoration: none;
+            flex: 1;
+        }
+
+        .repo-title:hover {
+            color: var(--primary-color);
+        }
+
+        .repo-description {
+            color: var(--light-gray);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            min-height: 48px;
+        }
+
+        .repo-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .language {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85em;
+            color: #4a5568;
+        }
+
+        .language-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .license-badge {
+            background: #e6fffa;
+            color: #234e52;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+
+        .repo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .repo-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Teaching Section */
+        #teaching {
+            text-align: center;
+        }
+
+        #teaching p {
+            font-size: 1.1em;
+            margin: 20px 0;
+        }
+
+        #teaching a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 20px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        #teaching a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            margin-top: 40px;
+            font-size: 1em;
+        }
+
+        /* Language colors */
+        .python { background: #3572A5; }
+        .javascript { background: #f1e05a; }
+        .html { background: #e34c26; }
+        .java { background: #b07219; }
+        .scala { background: #c22d40; }
+        .jupyter { background: #DA5B0B; }
+        .matlab { background: #e16737; }
+        .assembly { background: #6E4C13; }
+        .default { background: #858585; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2em;
+            }
+
+            .repos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-brand">Nipun B Nair</a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about-me">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#github-repos">GitHub</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section" id="about-me">
+            <img src="nipun1.jpg" alt="Nipun B Nair" class="hero-image" onerror="this.style.display='none'">
+            <div class="hero-content">
+                <h1>Nipun Balachandran Nair</h1>
+                <p class="hero-subtitle">MPhil Student | AI Researcher | Machine Learning Engineer</p>
+                <p class="hero-subtitle">Monash University, Clayton, Melbourne, Australia</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Connect With Me</h2>
+            <div class="contact-links">
+                <a href="mailto:nipunbnair@gmail.com">📧 Email</a>
+                <a href="Resume_new.pdf">📄 CV</a>
+                <a href="https://scholar.google.co.in/citations?hl=en&user=mefMP2gAAAAJ" target="_blank">🎓 Google Scholar</a>
+                <a href="https://github.com/nipunbnair/" target="_blank">💻 GitHub</a>
+                <a href="https://nipunbnair.github.io" target="_blank">🌐 Website</a>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research">
+            <h2>Research & Interests</h2>
+            <p>Dedicated AI Engineer and Researcher with a robust foundation in machine learning and data science. Expertise includes developing scalable API frameworks and fine-tuning Large Language Models (LLMs) to achieve high-performance benchmarks. Proven track record of delivering innovative technical solutions across the automotive, finance, and linguistic AI sectors.</p>
+            
+            <p>Currently advancing research in <strong>Generative AI and Conversational Systems</strong> under <a href="https://research.monash.edu/en/persons/teresa-wang/" target="_blank">Dr Teresa Wang</a> to drive the next generation of intelligent Conversational Recommendation Systems.</p>
+            
+            <p><strong>Research Areas:</strong> Large Language Models, Conversational AI, Recommendation Systems, NLP for Low-Resource Languages, Generative AI</p>
+            
+            <p>My other hobbies include dancing, singing, writing, chess, cricket, movies and learning new languages.</p>
+            
+            <div style="margin-top: 30px; text-align: center;">
+                <p style="margin-bottom: 15px;"><strong>🎥 Check out my work:</strong></p>
+                <div class="contact-links">
+                    <a href="https://www.youtube.com/watch?v=3szpcDU4WTs" target="_blank">🎬 Workshop Demo</a>
+                    <a href="https://www.youtube.com/@TheGen-AIPilgrim" target="_blank">📺 YouTube Channel - The GenAI Pilgrim</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Projects Section -->
+        <section id="projects">
+            <h2>Research Projects</h2>
+            <div class="project-container">
+                <div class="project">
+                    <h3>🤖 LLAMA2-finetuned model on Odia domain knowledge dataset</h3>
+                    <p>Introducing the LLAMA2-finetuned model, a cutting-edge linguistic AI developed through refinement with an Odia domain knowledge dataset. This model showcases remarkable language understanding and generation capabilities tailored specifically for the Odia language, offering a powerful tool for diverse applications within this linguistic domain.</p>
+                </div>
+
+                <div class="project">
+                    <h3>🧠 Dementia dataset creation and analysis in Malayalam</h3>
+                    <p>Delving into the realm of cognitive health, this endeavor involves the meticulous creation and subsequent analysis of a dementia dataset in the Malayalam language. Through this initiative, a comprehensive understanding of dementia's linguistic manifestations and potential insights within the Malayalam-speaking population is poised to emerge.</p>
+                </div>
+
+                <div class="project">
+                    <h3>📜 Segmentation of Malayalam Palm leaf images using FCN</h3>
+                    <p>Embarking on the convergence of technology and heritage, this project focuses on the application of Fully Convolutional Networks (FCN) for the intricate task of segmenting Malayalam palm leaf images. By leveraging advanced deep learning techniques, this undertaking seeks to unlock new avenues for preserving and interpreting the rich cultural and historical significance encapsulated within these unique artifacts.</p>
+                </div>
+
+                <div class="project">
+                    <h3>🌿 Olive: An Instruction following Odia GPT Model</h3>
+                    <p>Introducing "Olive," an innovative Odia language model built upon the GPT architecture, distinguished by its unique emphasis on instruction-based comprehension. Designed to adeptly follow and respond to instructions, Olive represents a remarkable stride in natural language processing, poised to facilitate seamless human-AI interactions and enhance various applications within the Odia linguistic landscape.</p>
+                </div>
+
+                <div class="project">
+                    <h3>🌍 Bangalore Pollution data analysis using Kalman filter</h3>
+                    <p>Embarking on an investigative journey, this study delves into the analysis of Bangalore's pollution data from 2018 to 2021, employing the robust Kalman filter methodology. Through this approach, a comprehensive understanding of the city's air quality emerges, encompassing major pollutants such as particulate matter (PM2.5 and PM10), nitrogen dioxide (NO2), sulfur dioxide (SO2), carbon monoxide (CO), and ozone (O3).</p>
+                </div>
+
+                <div class="project">
+                    <h3>🏏 IPL Auction System</h3>
+                    <p>Crafted upon the foundations of Java, the IPL Auction System stands as a testament to technological innovation in the realm of cricket. This dynamic system orchestrates the intricate processes of player bidding, team strategies, and financial management, encapsulating the essence of the Indian Premier League's high-stakes player acquisition.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub Repositories Section -->
+        <section id="github-repos">
+            <h2>GitHub Repositories</h2>
+            <p style="text-align: center; margin-bottom: 20px; color: #4a5568;">
+                Explore my open-source contributions and personal projects across various domains
+            </p>
+            
+            <div class="filter-section">
+                <button class="filter-btn active" onclick="filterRepos('all')">All Projects</button>
+                <button class="filter-btn" onclick="filterRepos('ai-ml')">AI & ML</button>
+                <button class="filter-btn" onclick="filterRepos('web')">Web Development</button>
+                <button class="filter-btn" onclick="filterRepos('data')">Data Science</button>
+                <button class="filter-btn" onclick="filterRepos('academic')">Academic</button>
+            </div>
+
+            <div class="repos-grid" id="reposGrid">
+                <!-- Agentic AI -->
+                <div class="repo-card" data-category="ai-ml">
+                    <div class="repo-header">
+                        <span class="repo-icon">🤖</span>
+                        <a href="https://github.com/nipunbnair/Agentic-AI-" class="repo-title" target="_blank">Agentic-AI</a>
+                    </div>
+                    <p class="repo-description">
+                        Experimental projects exploring autonomous AI agents powered by Large Language Models. Includes simple LLM calls, conversational loops, agents with memory, and email automation workflows.
+                    </p>
+                    <div class="repo-meta">
+                        <span class="language">
+                            <span class="language-dot python"></span>
+                            Python
+                        </span>
+                        <span class="license-badge">MIT License</span>
+                    </div>
+                    <a href="https://github.com/nipunbnair/Agentic-AI-" class="repo-link" target="_blank">View Repository →</a>
+                </div>
+
+                <!-- Personal Website -->
+                <div class="repo-card" data-category="web">
+                    <div class="repo-header">
+                        <span class="repo-icon">🌐</span>
+                        <a href="https://github.com/nipunbnair/nipunbnair.github.io" class="repo-title" target="_blank">nipunbnair.github.io</a>
+                    </div>
+                    <p class="repo-description">
+                        Personal portfolio website showcasing projects, research, and professional experience. Built with modern web technologies and responsive design.
+                    </p>
+                    <div class="repo-meta">
+                        <span class="language">
+                            <span class="language-dot html"></span>
+                            HTML
+                        </span>
+                    </div>
+                    <a href="https://github.com/nipunbnair/nipunbnair.github.io" class="repo-link" target="_blank">View Repository →</a>
+                </div>
+
+                <!-- Breast Cancer Classification -->
+                <div class="repo-card" data-category="ai-ml academic">
+                    <div class="repo-header">
+                        <span class="repo-icon">🏥</span>
+                        <a href="https://github.com/nipunbnair/BreastCancerClassification" class="repo-title" target="_blank">BreastCancerClassification</a>
+                    </div>
+                    <p class="repo-description">
+                        Machine learning project for breast cancer detection and classification. Research published in IEEE. Uses advanced classification algorithms for medical diagnosis.
+                    </p>
+                    <div class="repo-meta">
+                        <span class="language">
+                            <span class="language-dot jupyter"></span>
+                            Jupyter Notebook
+                        </span>
+                        <span class="license-badge">📄 IEEE Published</span>
+                    </div>
+                    <a href="https://github.com/nipunbnair/BreastCancerClassification" class="repo-link" target="_blank">View Repository →</a>
+                </div>
+
+                <!-- BardChat -->
+                <div class="repo-card" data-category="ai-ml">
+                    <div class="repo-header">
+                        <span class="repo-icon">💬</span>
+                        <a href="https://github.com/nipunbnair/BardChat" class="repo-title" target="_blank">BardChat</a>
+                    </div>
+                    <p class="repo-description">
+                        Interactive chatbot interface leveraging Google's Bard AI. Demonstrates integration with modern LLM APIs and conversational AI capabilities.
+                    </p>
+                    <div class="repo-meta">
+                        <span class="language">
+                            <span class="language-dot jupyter"></span>
+                            Jupyter Notebook
+                        </span>
+                    </div>
+                    <a href="https://github.com/nipunbnair/BardChat" class="repo-link" target="_blank">View Repository →</a>
+                </div>
+
+                <!-- AWS EC2 -->
+                <div class="repo-card" data-category="web">
+                    <div class="repo-header">
+                        <span class="repo-icon">☁️</span>
+                        <a href="https://github.com/nipunbnair/AWS_EC2" class="repo-title" target="_blank">AWS_EC2</a>
+                    </div>
+                    <p class="repo-description">
+                        Cloud deployment and infrastructure automation using AWS EC2. Includes scripts for instance management, deployment, and configuration.
+                    </p>
+                    <div class="repo-meta">
+                        <span class="language">
+                            <span class="language-dot python"></span>
+                            Python
+                        </span>
+                        <span class="license-badge">MIT License</span>
+                    </div>
+                    <a href="https://github.com/nipunbnair/AWS_EC2" class="repo-link" target="_blank">View Repository →</a>
+                </div>
+
+                <!-- Python ML & Genomics -->
+                <div class="repo-card" data-category="ai-ml data">
+                    <div class="repo-header">
+                        <span class="repo-icon">🧬</span>
+                        <a href="https://github.com/nipunbnair/Python" class="repo-title" target="_blank">Python ML & Genomics</a>
+                    </div>
+                    <p class="repo-description">
+                        Collection of Python programs for Machine Learning and Genomics research. Includes bioinformatics algorithms and ML pipelines.
+                    </p>
+                    <div class="repo-meta">
+                        <span class="language">
+                            <span class="language-dot jupyter"></span>
+                            Jupyter Notebook
+                        </span>
+                    </div>
+                    <a href="https://github.com/nipunbnair/Python" class="repo-link" target="_blank">View Repository →</a>
+                </div>
+
+                <!-- BigData -->
+                <div class="repo-card" data-category="data">
+                    <div class="repo-header">
+                        <span class="repo-icon">📈</span>
+                        <a href="https://github.com/nipunbnair/BigData-" class="repo-title" target="_blank">BigData</a>
+                    </div>
+                    <p class="repo-description">
+                        Big Data processing and analytics using Scala and distributed computing frameworks. Covers MapReduce, Spark, and large-scale data analysis.
+                    </p>
+                    <div class="repo-meta">
+                        <span class="language">
+                            <span class="language-dot scala"></span>
+                            Scala
+                        </span>
+                    </div>
+                    <a href="https://github.com/nipunbnair/BigData-" class="repo-link" target="_blank">View Repository →</a>
+                </div>
+
+                <!-- Deep RL -->
+                <div class="repo-card" data-category="ai-ml">
+                    <div class="repo-header">
+                        <span class="repo-icon">🎯</span>
+                        <a href="https://github.com/nipunbnair/Deep-Reinforcement-Learning-With-Python" class="repo-title" target="_blank">Deep-Reinforcement-Learning</a>
+                    </div>
+                    <p class="repo-description">
+                        Deep reinforcement learning algorithms including classic RL, distributional RL, and inverse RL using OpenAI Gym and TensorFlow.
+                    </p>
+                    <div class="repo-meta">
+                        <span class="language">
+                            <span class="language-dot jupyter"></span>
+                            Jupyter Notebook
+                        </span>
+                    </div>
+                    <a href="https://github.com/nipunbnair/Deep-Reinforcement-Learning-With-Python" class="repo-link" target="_blank">View Repository →</a>
+                </div>
+
+                <!-- More repositories can be added here -->
+                <div class="repo-card" data-category="academic">
+                    <div class="repo-header">
+                        <span class="repo-icon">☕</span>
+                        <a href="https://github.com/nipunbnair/JAVA_Practice" class="repo-title" target="_blank">JAVA_Practice</a>
+                    </div>
+                    <p class="repo-description">
+                        Data Structures and Algorithms practice implementations in Java. Covers fundamental DSA concepts and coding interview preparation.
+                    </p>
+                    <div class="repo-meta">
+                        <span class="language">
+                            <span class="language-dot java"></span>
+                            Java
+                        </span>
+                    </div>
+                    <a href="https://github.com/nipunbnair/JAVA_Practice" class="repo-link" target="_blank">View Repository →</a>
+                </div>
+
+                <!-- View all repositories button -->
+                <div class="repo-card" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; display: flex; align-items: center; justify-content: center; text-align: center; min-height: 200px;">
+                    <div>
+                        <h3 style="color: white; font-size: 1.5em; margin-bottom: 15px;">View All 25 Repositories</h3>
+                        <a href="https://github.com/nipunbnair?tab=repositories" target="_blank" style="color: white; background: rgba(255,255,255,0.2); padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; border: 2px solid white;">Explore on GitHub →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Section -->
+        <section id="teaching">
+            <h2>Teaching Experience</h2>
+            <p><strong>Units and courses taught:</strong></p>
+            <p>
+                <a href="SETU dashboard-TE.pdf">FIT1059: AI for Everyone (2025 S2) - SETU Report</a>
+            </p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Nipun Balachandran Nair | Built with ❤️</p>
+        <p style="margin-top: 10px;">AI Researcher | Machine Learning Engineer | Open Source Contributor</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Filter repositories
+        function filterRepos(category) {
+            const cards = document.querySelectorAll('.repo-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    const categories = card.getAttribute('data-category');
+                    if (categories && categories.includes(category)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    const navLinks = document.getElementById('navLinks');
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
