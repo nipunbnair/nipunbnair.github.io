@@ -1,23 +1,104 @@
-# Nipun B Nair
+# Nipun Balachandran Nair — Personal Website
 
-I am a final-year Computer science and Artificial Intelligence major at Amrita Vishwa Vidhyapeetham, Bangalore, where my main interests lie in the **Generative AI** field. Outside of class, my research primarily includes democratizing generative AI into various indic languages. My other hobbies include dancing, singing, writing, chess, cricket, movies and learning new languages.
+Source for **[nipunbnair.github.io](https://nipunbnair.github.io)**, my academic and professional portfolio. It collects my research, projects, open-source work and teaching in a single static page.
 
-- Email: [nipunbnair@gmail.com](mailto:nipunbnair@gmail.com)
-- [CV](Nipun08_08_2023_Resume.pdf)
-- [Google Scholar](https://scholar.google.co.in/citations?hl=en&user=mefMP2gAAAAJ)
+> MPhil Student · AI Researcher · Machine Learning Engineer
+> Monash University, Clayton, Melbourne, Australia
 
-![Profile Photo](1640616299014.jpg)
+---
 
-## Research
+## About
 
-The primary aim of my research is to democratize the capabilities of Generative Artificial Intelligence (AI) by extending its reach to encompass a multitude of Indic languages. With the advent of cutting-edge technologies like Generative AI, the potential for creative content generation, language translation, and cultural expression has surged remarkably. However, there exists a notable gap in its application to Indic languages, which are rich in diversity and heritage. By bridging this gap, my research endeavors to empower communities that communicate through Indic languages to leverage Generative AI for content creation, communication, and artistic expression. This pursuit holds the promise of not only preserving and revitalizing linguistic traditions but also fostering innovation and inclusivity in the digital era.
+I'm an MPhil student at Monash University working on **Generative AI and Conversational Recommendation Systems** under Dr Teresa Wang and Dr Tongtong Wu. My background spans large language models, NLP for low-resource languages, biomedical machine learning and agentic AI systems, with prior industry experience in the automotive sector and research internships at UC Santa Cruz and OdiaGenAI.
 
-## Publications & Preprints
+This site is where that work lives publicly — papers, code, demos and teaching.
 
-### Deployment of Breast Cancer Hybrid Net using Deep Learning
+## What's on the site
 
-**Nipun B Nair**, Dr Tripti Singh, Dr Amrita Thakur, Dr Prakash Duraisamy
+| Section | Contents |
+| --- | --- |
+| **About** | Hero portrait, current role and affiliation |
+| **Connect** | Email, CV, Google Scholar, GitHub and website links |
+| **Research & Interests** | Research statement, focus areas, workshop demo and YouTube channel *The GenAI Pilgrim* |
+| **Research Projects** | Six featured projects — Odia LLaMA-2 fine-tuning, Olive (instruction-following Odia GPT), Malayalam dementia dataset, palm-leaf image segmentation with FCNs, Kalman-filter pollution analysis, IPL Auction System |
+| **GitHub Repositories** | Filterable cards (AI & ML / Web / Data Science / Academic) linking to public repos |
+| **Teaching** | FIT1059 *AI for Everyone* — units taught and SETU reports |
 
-2022
+## Built with
 
-Breast cancer (BC) occurs when healthy breast cells grow out of control and become tumors. According to American Cancer Society, breast cancer occurs in one out of eight women and in one out of thousand men. Early breast cancer detection is thus important to give the maximum chance of survival for the patient. Breast biopsy is used to analyze the breast cells and diagnose whether the sample of cells contain breast cancer. It is an invasive method and manually analyzed by a pathologist under a microscope. There is a chance of human error in such a method, and it is time consuming. Oncologist can diagnose breast cancer at a faster and accurate and less painful way if they use machine learning and image classification algorithms. One of the best machine learning techniques is Support Vector Machine. If it is combined with the computational power of Convolutional Neural Network, it becomes an immensely powerful classification algorithm. Support Vector Machine and Convolutional Neural Network model gives better accuracy than other image classifiers such as VGG16, RESNET 50, and INCEPTIONV3 models. This research is to design Deployment of Breast Cancer Hybrid Net using Deep Learning For research dataset of 3538 images was deployed. During research experiments SVM-CNN, VGG16, RESNET 50, and INCEPTIONV3 models accuracy reported were 93.35%, 89.54%, 92.45% and 88.6% respectively.
+Deliberately dependency-free: **HTML5**, **CSS3** (custom properties, CSS Grid, Flexbox) and **vanilla JavaScript**. No framework, no bundler, no `npm install` — the page is a single self-contained file plus assets.
+
+Interactive behaviour is hand-rolled: a sticky nav with a mobile hamburger menu, smooth-scroll anchors, and client-side category filtering for the repository cards.
+
+## Repository structure
+
+```
+.
+├── index.html                            # The entire site — markup, styles and scripts
+├── nipun1.jpg                            # Hero portrait
+├── Nipun_Nair_AI_Engineer_Resume.pdf     # Downloadable CV
+├── SETU dashboard-TE.pdf                 # Teaching evaluation reports
+├── images/                               # Gallery / collage photos
+└── README.md
+```
+
+## Running it locally
+
+Clone and open — that's the whole workflow.
+
+```bash
+git clone https://github.com/nipunbnair/nipunbnair.github.io.git
+cd nipunbnair.github.io
+open index.html          # or: xdg-open index.html
+```
+
+To test relative asset paths and anchor links the way GitHub Pages serves them, use a local server instead:
+
+```bash
+python3 -m http.server 8000
+# then visit http://localhost:8000
+```
+
+## Deployment
+
+Hosted on **GitHub Pages** from the `main` branch. Any push to `main` is published automatically within a minute or two — there is no build step.
+
+```bash
+git add .
+git commit -m "Update portfolio"
+git push origin main
+```
+
+## Customising the page
+
+**Theme colours** live as CSS custom properties in the `:root` block at the top of `index.html`:
+
+```css
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --dark-color: #2d3748;
+    --light-gray: #718096;
+}
+```
+
+**Adding a repository card** — copy an existing `.repo-card` block and set `data-category` to one or more of `ai-ml`, `web`, `data`, `academic` so the filter buttons pick it up.
+
+**Adding a project** — duplicate a `.project` div inside `.project-container`; the grid reflows on its own.
+
+**Gallery images** — drop files into `images/` and add a `.collage-item` per photo. Resize to roughly 1200 px on the long edge and compress before committing; GitHub Pages serves images uncompressed, and full-size phone photos noticeably slow first paint.
+
+## Responsiveness and accessibility
+
+The layout is mobile-first below 768 px: the nav collapses to a hamburger menu, multi-column grids fold to a single column, and images scale within their containers. Images carry descriptive `alt` text and use `loading="lazy"` below the fold.
+
+## Contact
+
+- **Email** — [nipunbnair@gmail.com](mailto:nipunbnair@gmail.com)
+- **Google Scholar** — [Publications](https://scholar.google.co.in/citations?hl=en&user=mefMP2gAAAAJ)
+- **GitHub** — [@nipunbnair](https://github.com/nipunbnair/)
+- **YouTube** — [The GenAI Pilgrim](https://www.youtube.com/@TheGen-AIPilgrim)
+
+## License
+
+Code in this repository is available under the MIT License. Written content, images, CV and teaching materials are © Nipun Balachandran Nair — please ask before reusing them.
